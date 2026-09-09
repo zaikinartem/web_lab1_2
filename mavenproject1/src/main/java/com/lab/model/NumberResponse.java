@@ -1,31 +1,52 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.lab.model;
 
+import java.util.List;
+
 /**
- *
+ * Класс-ответ для передачи результата поиска счастливых чисел.
+ * Содержит сообщение о результате и список найденных счастливых чисел.
+ * 
  * @author User
+ * @version 1.0
  */
 public class NumberResponse {
-    private String result;
-    private String operationType;
+
+    /**
+     * Сообщение о результате выполнения операции.
+     */
+    private String message;
     
-    public NumberResponse(String result, String operationType) {
-    this.result = result;
-    this.operationType = operationType;
+    /**
+     * Список счастливых чисел.
+     */
+    private List<Integer> luckyNumbers;
+
+    /**
+     * Конструктор для создания объекта ответа.
+     * 
+     * @param message сообщение о результате
+     * @param luckyNumbers список счастливых чисел
+     */
+    public NumberResponse(String message, List<Integer> luckyNumbers) {
+        this.message = message;
+        this.luckyNumbers = luckyNumbers;
     }
-    
-    public String getResult() {
-        return result;
+
+    /**
+     * Возвращает сообщение о результате.
+     * 
+     * @return сообщение
+     */
+    public String getMessage() {
+        return message;
     }
-    public String getOperationType() {
-        return operationType;
-    }
-    
-    @Override 
-    public String toString() {
-        return operationType + ": " + result;
+
+    /**
+     * Возвращает список счастливых чисел.
+     * 
+     * @return список счастливых чисел
+     */
+    public List<Integer> getLuckyNumbers() {
+        return luckyNumbers;
     }
 }

@@ -1,4 +1,6 @@
+com\lab\Application.class
 com\lab\model\NumberResponse.class
 com\lab\service\LabService.class
 com\lab\controller\LabController.class
 com\lab\service\impl\LabServiceImpl.class
+com\lab\model\NumberRequest.class
