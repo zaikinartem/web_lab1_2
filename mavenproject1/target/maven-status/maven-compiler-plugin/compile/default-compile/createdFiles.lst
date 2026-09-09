@@ -1,1 +1,4 @@
-com\mycompany\mavenproject1\Mavenproject1.class
+com\lab\model\NumberResponse.class
+com\lab\service\LabService.class
+com\lab\controller\LabController.class
+com\lab\service\impl\LabServiceImpl.class
