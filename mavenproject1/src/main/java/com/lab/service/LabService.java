@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.lab.service;
 
-/**
- *
- * @author User
- */
-public class LabService {
-    
+import com.lab.model.NumberResponse;
+
+import java.util.List;
+
+public interface LabService {
+
+    NumberResponse findLuckyNumbers(List<Integer> numbers);
 }
