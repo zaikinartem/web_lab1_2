@@ -1,13 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.lab;
 
-/**
- *
- * @author User
- */
+import com.lab.controller.LabController;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+@SpringBootApplication
 public class Application {
-    
+
+    public static void main(String[] args) {
+        ApplicationContext context = SpringApplication.run(Application.class, args);
+        LabController controller = context.getBean(LabController.class);
+
+        controller.executeLab2();
+    }
 }
