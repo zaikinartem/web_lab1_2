@@ -22,17 +22,16 @@
     <java.version>17</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <start-class>com.lab.Application</start-class>  <!-- ДОБАВЬТЕ ЭТУ СТРОКУ -->
+    <start-class>com.lab.Application</start-class>  
 </properties>
 
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
-        <!-- Можно оставить, если Lombok используется в проекте -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
