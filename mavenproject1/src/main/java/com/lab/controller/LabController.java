@@ -5,6 +5,7 @@ import com.lab.service.LabService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -44,20 +45,19 @@ public class LabController {
      */
     public void executeLab2() {
         System.setOut(new java.io.PrintStream(System.out, true, java.nio.charset.StandardCharsets.UTF_8));
-        System.out.println("\nЗАДАНИЕ 2");
+        System.out.println("\n=== ЗАДАНИЕ 2 ===");
         System.out.println("Критерий счастливого числа: сумма цифр равна 7");
 
-        System.out.print("Введите количество чисел n: ");
-        int n = scanner.nextInt();
+        int n = readInt("Введите количество чисел n: ");
 
         List<Integer> numbers = new ArrayList<>();
-        System.out.print("Введите " + n + " целых чисел через пробел: ");
+        System.out.println("Введите " + n + " целых чисел через пробел: ");
         for (int i = 0; i < n; i++) {
-            numbers.add(scanner.nextInt());
+            numbers.add(readInt("Число " + (i + 1) + ": "));
         }
 
         NumberResponse response = labService.findLuckyNumbers(numbers);
-        
+
         System.out.println("\nРезультат:");
         System.out.println(response.getMessage());
         if (!response.getLuckyNumbers().isEmpty()) {
@@ -65,5 +65,27 @@ public class LabController {
         }
 
         scanner.close();
+    }
+/**
+ * Считывает целое число с консоли с защитой от некорректного ввода.
+ * Если пользователь вводит не целое число (буквы, символы и т.п.),
+ * метод выводит сообщение об ошибке и повторяет запрос до тех пор,
+ * пока не будет введено корректное целое число.
+ *
+ * @param prompt текст-приглашение, выводимый перед вводом
+ * @return value
+ */
+    private int readInt(String prompt) {
+        while (true) {
+            try {
+                System.out.print(prompt);
+                int value = scanner.nextInt();
+                scanner.nextLine();
+                return value;
+            } catch (InputMismatchException e) {
+                System.out.println("Ошибка: введите целое число!");
+                scanner.nextLine();
+            }
+        }
     }
 }
